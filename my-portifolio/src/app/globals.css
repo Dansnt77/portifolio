@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+body{
+  background-color: #121212;
+}
+
+
+main{
+  font-family: 'Inter', sans-serif;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), 1s infinite;
+
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@keyframes blinking{
+  50%{
+    border-color: rgb(255, 255, 255)
+  }
+}
