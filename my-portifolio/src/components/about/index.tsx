@@ -1,18 +1,27 @@
 "use client"
 import Image from "next/image"
-import perfil from "../../assets/Imagem do WhatsApp de 2023-07-17 à(s) 13.16 1.svg"
+import perfil from "../../assets/perfil.jpg"
 import React, { useEffect, useState } from 'react';
 import chave from "../../assets/{.png"
 import chaveInvert from "../../assets/{.svg"
+import instagram from "../../assets/icons8-instagram.svg"
+import linkedin from "../../assets/icons8-linkedin.svg"
+import github from "../../assets/icons8-github.svg"
 
 export const About = () => {
 
     return (
 
-        <section className="mt-6 p-6 w-278 h-6/6 bg-[#151515] flex flex-col items-center border rounded-lg border-[#C1BBBB]">
-            <Image src={perfil} alt="Perfil" />
+        <section id="about" className="mt-6 p-6 w-278 h-6/6 flex flex-col items-center rounded-lg">
+            <Image src={perfil} alt="Perfil" className="w-52 h-52 perfil" />
+            <div className="flex mt-3">
+                <a href="https://www.instagram.com/dansnt_77/"><Image className="" src={instagram} alt="instagram"></Image></a>
+                <a href="https://www.linkedin.com/in/danilo-santos-8b1659251/"><Image className="" src={linkedin} alt="linkedin"></Image></a>
+                <a href="https://github.com/Dansnt77"><Image className="" src={github} alt="github"></Image></a>
+            </div>
             <div className="mt-6 w-56 h-full flex flex-col ">
                 <Image className="" src={chave} alt="chave" />
+
                 <div className="text-center">
                     <p className="font-bold typing-effect text-white">Olá, eu sou</p>
                     <p className="font-bold typing-effect text-base text-[#8900F5]">Danilo Santos</p>
@@ -25,7 +34,7 @@ export const About = () => {
 
             <div>
                 <h3 className="mt-6 font-bold center text-base text-center text-[#C5BFBF] pb-15">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus augue quis augue condimentum consequat. Aliquam a nisi sed metus posuere pharetra. Proin nec est odio. Duis eget erat nunc. Pellentesque molestie turpis sed aliquam vestibulum.
+                    Sou Desenvolvedor Web Front-End. Adquiri habilidades sólidas na organização e documentação de projetos, sempre buscando me atualizar em diversas tecnologias de programação web. Além disso, possuo conhecimento em metodologias ágeis, o que contribui para minha abordagem colaborativa e centrada na entrega de resultados, possuo inglês básico, Estou aberto a novas oportunidades e ansioso para contribuir com o sucesso de uma equipe talentosa e inovadora.
                 </h3>
             </div>
 

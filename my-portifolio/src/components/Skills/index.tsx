@@ -11,6 +11,9 @@ import python from "../../assets/icons8-python-50.png"
 import node from "../../assets/icons8-node-js-32.png"
 import css from "../../assets/icons8-css-30.png"
 import js from "../../assets/icons8-javascript.svg"
+import expressJS from "../../assets/icons8-express-js-50.png"
+import Django from "../../assets/icons8-django-100.png"
+import Taiwilnd from "../../assets/icons8-tailwind-css-48.png"
 import { useInView } from "react-intersection-observer"
 import { SetStateAction, useState } from "react"
 
@@ -36,7 +39,7 @@ export const Skills = () => {
     }
 
     return (
-        <section className="mt-6 w-full flex flex-col ">
+        <section id="skills" className="mt-6 w-full flex flex-col ">
             <h2 className="font-bold text-xl text-white">HABILIDADES <span className="font-bold text-xl text-[#8900F5]">;</span></h2>
 
             <div className="mt-6 w-full h-full flex flex-col gap ">
@@ -131,6 +134,36 @@ export const Skills = () => {
                     >
                         <Image className="w-16 h-16 object-contain" src={js} alt="JavaScript" />
                         {hoverTech === 'JavaScript' && <p className="text-white whitespace-nowrap overflow-hidden overflow-ellipsis">JavaScript</p>}
+                    </li>
+                    <li
+                        ref={ref}
+                        className={`w-120 h-77 flex flex-col items-center ${inView ? 'typing-effect' : ''}`}
+                        onMouseEnter={() => handleMouseEnter('ExpressJS')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('ExpressJS')}
+                    >
+                        <Image className="w-16 h-16 object-contain" src={expressJS} alt="ExpressJS" />
+                        {hoverTech === 'ExpressJS' && <p className="text-white whitespace-nowrap overflow-hidden overflow-ellipsis">ExpressJS</p>}
+                    </li>
+                    <li
+                        ref={ref}
+                        className={`w-120 h-77 flex flex-col items-center ${inView ? 'typing-effect' : ''}`}
+                        onMouseEnter={() => handleMouseEnter('Django')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('Django')}
+                    >
+                        <Image className="w-16 h-16 object-contain" src={Django} alt="Django" />
+                        {hoverTech === 'Django' && <p className="text-white whitespace-nowrap overflow-hidden overflow-ellipsis">Django</p>}
+                    </li>
+                    <li
+                        ref={ref}
+                        className={`w-120 h-77 flex flex-col items-center ${inView ? 'typing-effect' : ''}`}
+                        onMouseEnter={() => handleMouseEnter('TailwindCSS')}
+                        onMouseLeave={handleMouseLeave}
+                        onClick={() => handleClick('TailwindCSS')}
+                    >
+                        <Image className="w-16 h-16 object-contain" src={Taiwilnd} alt="TailwindCSS" />
+                        {hoverTech === 'TailwindCSS' && <p className="text-white whitespace-nowrap overflow-hidden overflow-ellipsis">TailwindCSS</p>}
                     </li>
                 </ul>
 
