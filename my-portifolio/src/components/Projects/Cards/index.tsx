@@ -1,32 +1,75 @@
-import React, { useState } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-import projectOne from "../../../assets/image 1.svg";
+"use client";
+import React, { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Image from "next/image"
-import gitHub from "../../../assets/GitHub.svg"
-import helPets from "../../../assets/image 2(1).svg"
+import gitHub from "../../../assets/icons8-github(1).svg"
+import { projectsData } from "../../../utils/projectsData";
+
+interface ProjectsType {
+    title: string;
+    img: string;
+    description: string;
+    siteLink: string;
+    repositoryLink: string;
+}
 
 export const Card = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsDesktop(window.innerWidth >= 768);
+        };
+
+        checkScreenSize();
+
+        window.addEventListener('resize', checkScreenSize);
+
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
+
+    const numCardsToShow = isDesktop ? 3 : 1;
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: numCardsToShow,
+        slidesToScroll: 1,
+    };
 
     return (
-        <div className="w-full max-w-xl">
-            <Carousel selectedItem={currentIndex} showArrows={false} showStatus={false} showThumbs={false}>
-                <div className="mt-4 w-full h-96 border-4 border-current border-purple-700 rounded flex flex-col items-center p-1 justify-center">
-                    <h3 className="text-white font-bold mt-2">Kenzie Burger</h3>
-                    <Image className="rounded w-full h-36" src={projectOne} alt="Kenzie Burger" />
-                    <p className="text-[#C5BFBF] text-center mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut!Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <Image className="cursor-pointer w-14 h-14" src={gitHub} alt="GitHub" />
-                </div>
-
-                <div className="mt-4 w-full h-96 border-4 border-current border-purple-700 rounded flex flex-col items-center p-1 justify-center">
-                    <h3 className="text-white font-bold mt-2">HelPets</h3>
-                    <Image className="rounded w-full h-36" src={helPets} alt="HelPets" />
-                    <p className="text-[#C5BFBF] text-center mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, aut!Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <Image className="cursor-pointer w-14 h-14" src={gitHub} alt="GitHub" />
-                </div>
-            </Carousel>
+        <div className="w-full">
+            <Slider  {...settings}>
+                {projectsData.map((project: ProjectsType, index) => {
+                    return (
+                        <div key={project.title} className={`mt-4 ${isDesktop ? 'w-1/3' : 'w-full'}`}>
+                            <div className="w-full h-96 border-4 border-current border-purple-700 rounded flex flex-col items-center p-1 justify-center">
+                                <h3 className="text-white font-bold mt-2">{project.title}</h3>
+                                <div className="image-container">
+                                    <a href={project.siteLink} target="_blank" rel="noopener noreferrer">
+                                        <Image
+                                            className="rounded max-w-xs h-36"
+                                            src={project.img}
+                                            alt={project.title}
+                                        />
+                                        <div className="overlay">
+                                            <p className="overlay-text">Acessar Site</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <p className="text-[#C5BFBF] text-center mt-3">{project.description}</p>
+                                <a href={project.repositoryLink} target="_blank">
+                                    <Image className="cursor-pointer w-14 h-14" src={gitHub} alt="GitHub" />
+                                </a>
+                            </div>
+                        </div>
+                    )
+                })}
+            </Slider>
         </div>
     );
 };
+

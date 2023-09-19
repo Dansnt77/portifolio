@@ -155,16 +155,67 @@ main {
   color: #000000;
 }
 
-
-.button-nav {
-
-  font-size: calc(0.5rem + 1vw);
-  min-width: 100px;
-  max-width: 200px;
+/* Estilo da borda roxa */
+/* Estilo da borda roxa na parte inferior */
+.desktop-button {
+  position: relative;
+  transition: border-color 0.3s ease;
+  color: white;
 }
 
-@media (min-width: 768px) {
-  .button-nav {
-    font-size: 1rem;
-  }
+.desktop-button::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #9933ff;
+  /* Cor da linha roxa */
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.desktop-button:hover::before {
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Cor do fundo da sobreposição */
+  opacity: 0;
+  /* Inicialmente, torna-se invisível */
+  transition: opacity 0.3s ease;
+  /* Efeito de transição suave */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay-text {
+  color: white;
+  /* Cor do texto */
+  font-size: 18px;
+  /* Tamanho do texto */
+  font-weight: bold;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+  /* Torna a sobreposição visível quando passar o cursor sobre a imagem */
+}
+
+.image-container:hover img {
+  filter: blur(5px);
+  /* Aplica um efeito de desfoque na imagem de fundo quando passar o cursor sobre a imagem */
 }

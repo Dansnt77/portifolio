@@ -4,9 +4,9 @@ import perfil from "../../assets/perfil.jpg"
 import React, { useEffect, useState } from 'react';
 import chave from "../../assets/{.png"
 import chaveInvert from "../../assets/{.svg"
-import instagram from "../../assets/icons8-instagram.svg"
-import linkedin from "../../assets/icons8-linkedin.svg"
-import github from "../../assets/icons8-github.svg"
+import instagram from "../../assets/icons8-instagram(1).svg"
+import linkedin from "../../assets/icons8-linkedin(1).svg"
+import github from "../../assets/icons8-github(1).svg"
 
 export const About = () => {
 
