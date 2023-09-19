@@ -183,39 +183,26 @@ main {
   position: relative;
 }
 
+.image-container img {
+  width: 100%;
+  height: 100%;
+}
+
 .overlay {
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Cor do fundo da sobreposição */
-  opacity: 0;
-  /* Inicialmente, torna-se invisível */
-  transition: opacity 0.3s ease;
-  /* Efeito de transição suave */
+  right: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-}
-
-.overlay-text {
-  color: white;
-  /* Cor do texto */
-  font-size: 18px;
-  /* Tamanho do texto */
-  font-weight: bold;
+  justify-content: center;
 }
 
 .image-container:hover .overlay {
   opacity: 1;
-  /* Torna a sobreposição visível quando passar o cursor sobre a imagem */
 }
 
 .image-container:hover img {
-  filter: blur(5px);
-  /* Aplica um efeito de desfoque na imagem de fundo quando passar o cursor sobre a imagem */
+  filter: blur(2px);
 }

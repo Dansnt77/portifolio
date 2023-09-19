@@ -103,7 +103,7 @@ export default function Home() {
                 transform: translateY(100vh);
               }
               to {
-                transform: translateY(-10vh);
+                transform: translateY(-40vh);
               }
             }
           `}
