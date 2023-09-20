@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Projects } from "@/components/Projects";
@@ -38,30 +38,32 @@ export default function Home() {
     };
   };
 
-  const updateBubbles = () => {
-    const updatedBubbles = bubbles.map((bubble) => {
-      const newYPos = bubble.yPos - 1;
-      if (newYPos < -bubble.size) {
-        return createBubble();
-      }
-      return { ...bubble, yPos: newYPos };
-    });
-    setBubbles(updatedBubbles);
-  };
-
-  useEffect(() => {
-    const animationFrame = requestAnimationFrame(updateBubbles);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [bubbles, updateBubbles]); // Adicione as dependências ausentes
-
   useEffect(() => {
     const initialBubbles = Array.from({ length: 30 }, () => createBubble());
     setBubbles(initialBubbles);
   }, []);
 
+  useEffect(() => {
+    const updateBubbles = () => {
+      setBubbles((prevBubbles) => {
+        const updatedBubbles = prevBubbles.map((bubble) => {
+          const newYPos = bubble.yPos - 1;
+          if (newYPos < -bubble.size) {
+            return createBubble();
+          }
+          return { ...bubble, yPos: newYPos };
+        });
+        return updatedBubbles;
+      });
+    };
+
+    const animationFrame = requestAnimationFrame(updateBubbles);
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
   return (
     <>
-      <div className="max-h-screen-xl" style={{ backgroundColor: "#121212" }}>
+      <div className="h-screen" style={{ backgroundColor: "#121212" }}>
         <Head>
           <style>
             {`
@@ -111,7 +113,6 @@ export default function Home() {
           `}
         </style>
       </div>
-
     </>
   );
 }
