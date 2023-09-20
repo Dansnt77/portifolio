@@ -6,6 +6,7 @@ import { Skills } from "@/components/Skills";
 import { About } from "@/components/about";
 import { Form } from "@/components/form";
 import Head from "next/head";
+import { Footer } from "@/components/Footer";
 
 type Bubble = {
   size: number;
@@ -60,7 +61,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-screen" style={{ backgroundColor: "#121212" }}>
+      <div className="max-h-screen-xl" style={{ backgroundColor: "#121212" }}>
         <Head>
           <style>
             {`
@@ -68,7 +69,7 @@ export default function Home() {
             `}
           </style>
         </Head>
-        <main className="h-screen w-screen gap-10">
+        <main className="max-h-screen-xl w-screen gap-10">
           <Header />
           <div
             className="absolute inset-0 h-screen pointer-events-none"
@@ -89,12 +90,13 @@ export default function Home() {
               ></div>
             ))}
           </div>
-          <div className="container w-screen h-screen flex flex-col">
+          <div className="container max-w-screen-xl max-h-screen-xl flex flex-col">
             <About />
             <Skills />
             <Projects />
             <Form />
           </div>
+          <Footer />
         </main>
         <style>
           {`
@@ -109,6 +111,7 @@ export default function Home() {
           `}
         </style>
       </div>
+
     </>
   );
 }

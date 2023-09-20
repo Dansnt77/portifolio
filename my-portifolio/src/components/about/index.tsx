@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import perfil from "../../assets/perfil.jpg"
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import chave from "../../assets/{.png"
 import chaveInvert from "../../assets/{.svg"
 import instagram from "../../assets/icons8-instagram(1).svg"

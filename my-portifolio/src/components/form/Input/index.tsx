@@ -18,7 +18,7 @@ export const Input = forwardRef(function InputComponent(
     return (
         <div className="flex flex-col">
             {label ? <label className="text-white mb-1 mt-1">{label}</label> : null}
-            <input ref={ref} {...rest} className="rounded-md border-2 bg-transparent border-violet-900" />
+            <input ref={ref} {...rest} className="rounded-md text-white p-1 border-2 bg-transparent border-violet-900" />
             {error ? <p className="text-white mb-[0.5rem]">{error.message}</p> : null}
         </div>
     );
@@ -33,7 +33,7 @@ export const TextArea = forwardRef(function TextAreaComponent(
     return (
         <div className="flex flex-col">
             {label ? <label className="text-white mb-[0.875rem]">{label}</label> : null}
-            <textarea ref={ref} {...rest} className="rounded-md border-2 bg-transparent border-violet-900" />
+            <textarea ref={ref} {...rest} className="rounded-md text-white p-1 border-2 bg-transparent border-violet-900" />
             {error ? <p className="text-white mb-[0.5rem]">{error.message}</p> : null}
         </div>
     );

@@ -23,7 +23,6 @@ export const Header = () => {
                     </button>
                 </div>
 
-                {/* Seção visível apenas na versão desktop */}
                 <section className="desktop-section flex hidden md:flex items-center gap-10">
                     <Link className="desktop-button" href="#about"><button title="Sobre">Sobre</button></Link>
                     <Link className="desktop-button" href="#skills"><button title="Habilidades">Habilidades</button></Link>

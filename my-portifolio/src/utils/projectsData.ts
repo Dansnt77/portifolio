@@ -22,7 +22,7 @@ export const projectsData = [
     {
         title: "GitSearch",
         img: gitSearch,
-        description: "Projeto em JavaScript com o propósito de encontrar perfis do github e mostrar seus reposítorios com base na API do gitHub",
+        description: "Projeto em JavaScript com o propósito de encontrar perfis e mostrar seus reposítorios com API do gitHub",
         siteLink: "",
         repositoryLink: "https://github.com/Kenzie-Academy-Brasil-Developers/gitSearchBase-Dansnt77"
     },

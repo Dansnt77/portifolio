@@ -4,6 +4,8 @@ import sendEmail from "../../assets/icons8-enviar-100.png";
 import Image from "next/image";
 import { EmailFormSchema } from "./formEmailSchema";
 import { Input, TextArea } from "./Input";
+import chave from "../../assets/{.png"
+import chaveInvert from "../../assets/{.svg"
 
 interface FormData {
    name: string;
@@ -76,44 +78,56 @@ export const Form = () => {
    };
 
    return (
-      <form id="email" className="flex w-full flex-col">
-         <Input
-            label="Nome:"
-            type="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            disabled={loading}
-         />
-         <Input
-            label="Email:"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            disabled={loading}
-         />
-         <Input
-            label="Assunto:"
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            disabled={loading}
-         />
-         <TextArea
-            label="Mensagem:"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            disabled={loading}
-         />
-         <button type="button" className="flex justify-end" onClick={handleSubmit} disabled={loading}>
-            <Image src={sendEmail} className="w-14 h-14" alt="Enviar E-mail" />
-         </button>
-         {successMessage && <div className="text-green-500">{successMessage}</div>}
-         {errorMessage && <div className="text-red-500">{errorMessage}</div>}
-         {loading && <div>Loading...</div>}
-      </form>
+      <section className="mt-6 w-full flex flex-col">
+         <h2 className="font-bold text-xl text-white">ME CONTATE<span className="font-bold text-xl text-[#8900F5]">;</span></h2>
+         <div className="mt-6 w-full h-full flex flex-col gap">
+            <Image className="" src={chave} alt="chave" />
+            <form id="email" className="flex w-full flex-col p-2">
+               <Input
+                  label="Nome:"
+                  type="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  disabled={loading}
+               />
+               <Input
+                  label="Email:"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  disabled={loading}
+               />
+               <Input
+                  label="Assunto:"
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  disabled={loading}
+               />
+               <TextArea
+                  label="Mensagem:"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  disabled={loading}
+               />
+               <button type="button" className="flex justify-end" onClick={handleSubmit} disabled={loading}>
+                  <Image src={sendEmail} className="w-14 h-14" alt="Enviar E-mail" />
+               </button>
+               {successMessage && <div className="text-green-500">{successMessage}</div>}
+               {errorMessage && <div className="text-red-500">{errorMessage}</div>}
+               {loading && <div>Loading...</div>}
+            </form>
+            <div className="mt-3 mb-3 w-full flex justify-end">
+               <Image src={chaveInvert} alt="chave" />
+            </div>
+         </div>
+
+
+      </section>
+
    );
 };
