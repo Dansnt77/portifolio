@@ -7,6 +7,7 @@ import { About } from "@/components/about";
 import { Form } from "@/components/form";
 import Head from "next/head";
 import { Footer } from "@/components/Footer";
+import { Projects_BackEnd } from "@/components/Projects_Back";
 
 type Bubble = {
   size: number;
@@ -59,11 +60,12 @@ export default function Home() {
 
     const animationFrame = requestAnimationFrame(updateBubbles);
     return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  }, [createBubble]);
 
   return (
     <>
       <div className="h-screen" style={{ backgroundColor: "#121212" }}>
+
         <Head>
           <style>
             {`
@@ -72,11 +74,22 @@ export default function Home() {
           </style>
         </Head>
         <main className="max-h-screen-xl w-screen gap-10">
+
           <Header />
           <div
             className="absolute inset-0 h-screen pointer-events-none"
             style={{ zIndex: -1 }}
           >
+          </div>
+          <div className="container max-w-screen-xl max-h-screen-xl flex flex-col">
+            <About />
+            <Skills />
+            <Projects />
+            <Projects_BackEnd />
+            <Form />
+          </div>
+          <Footer />
+          <div className="footer-container">
             {bubbles.map((bubble, index) => (
               <div
                 key={index}
@@ -92,14 +105,9 @@ export default function Home() {
               ></div>
             ))}
           </div>
-          <div className="container max-w-screen-xl max-h-screen-xl flex flex-col">
-            <About />
-            <Skills />
-            <Projects />
-            <Form />
-          </div>
-          <Footer />
+
         </main>
+
         <style>
           {`
             @keyframes rise {

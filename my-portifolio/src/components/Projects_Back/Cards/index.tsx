@@ -3,15 +3,14 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import gitHub from "../../../assets/icons8-github(1).svg"
-import { projectsData } from "../../../utils/projectsData";
+import { projectsBackEndData } from "../../../utils/projectsData";
 
-interface ProjectsType {
+interface ProjectsBackType {
     title: string;
-    img: string;
+    img: StaticImageData | string;
     description: string;
-    siteLink: string;
     repositoryLink: string;
 }
 
@@ -35,30 +34,24 @@ export const Card = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
-        slidesToShow: numCardsToShow,
+        slidesToShow: 2,
         slidesToScroll: 1,
     };
 
     return (
         <div className="w-full">
             <Slider {...settings}>
-                {projectsData.map((project: ProjectsType, index) => {
+                {projectsBackEndData.map((project: ProjectsBackType) => {
                     return (
                         <div key={project.title} className={`mt-4 ${isDesktop ? 'w-1/3' : 'w-full'}`}>
                             <div className="w-full h-96 border-4 border-current border-purple-700 rounded flex flex-col items-center p-1 justify-center">
                                 <h3 className="text-white font-bold mt-2">{project.title}</h3>
-                                <div className="image-container relative">
-                                    <a className='flex' href={project.siteLink} target="_blank" rel="noopener noreferrer">
-                                        <Image
-                                            className="rounded max-w-xs h-28 transition-all duration-500 ease-in-out transform hover:scale-105"
-                                            src={project.img}
-                                            alt={project.title}
-                                        />
-                                        <div className="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out">
-                                            <p className="overlay-text text-white">Acessar Site</p>
-                                        </div>
-                                    </a>
+                                <div className="image-container-back relative">
+                                    <Image
+                                        className="rounded max-w-xs w-full h-52 transition-all duration-500 ease-in-out transform hover:scale-105"
+                                        src={project.img}
+                                        alt={project.title}
+                                    />
                                 </div>
                                 <p className="text-[#C5BFBF] text-center mt-3">{project.description}</p>
                                 <a href={project.repositoryLink} target="_blank">
