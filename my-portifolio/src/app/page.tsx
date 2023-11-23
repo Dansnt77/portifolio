@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Header } from "@/components/Header";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
@@ -29,7 +29,7 @@ export default function Home() {
     return colors[Math.floor(Math.random() * colors.length)];
   };
 
-  const createBubble = () => {
+  const createBubble = useCallback(() => {
     return {
       size: getRandomNumber(5, 20),
       xPos: getRandomNumber(0, window.innerWidth),
@@ -37,7 +37,7 @@ export default function Home() {
       animationDuration: getRandomNumber(5, 15),
       color: getRandomColor(),
     };
-  };
+  }, []);
 
   useEffect(() => {
     const initialBubbles = Array.from({ length: 30 }, () => createBubble());

@@ -56,6 +56,7 @@ export const Skills = () => {
                     {skills.map((skill: SkillsType, index) => {
                         return (
                             <li
+                                key={index}
                                 ref={ref}
                                 className={`w-120 h-77 flex items-center flex-col ${inView ? 'typing-effect' : ''}`}
                                 onMouseEnter={() => handleMouseEnter(skill.name)}
